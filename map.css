@@ -263,7 +263,6 @@ html, body
 }
 .marker_title
 {
-  font-weight: bold;
   max-width: 350px;
 }
 .marker_uri
@@ -275,18 +274,13 @@ html, body
 {
   max-width: 300px;
   color: #555;
-  font-size: 9pt;
   margin-top: 10px;
 }
 .marker_address
 {
-  font-size: 8pt;
   margin-top: 10px;
   color: #999;
 }
-
-
-
 /* modals */
 .modal
 {

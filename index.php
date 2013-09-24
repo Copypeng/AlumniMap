@@ -203,7 +203,7 @@ include_once "header.php";
           // add marker click effects (open infowindow)
           google.maps.event.addListener(marker, 'click', function () {
             infowindow.setContent(
-              "<div class='marker_title'>"+val[0]+"</div>"
+              "<div class='marker_title' style='font-weight:bold;'>"+val[0]+"</div>"
               + "<div class='marker_uri'><a target='_blank' href='"+markerURI+"'>"+markerURI_short+"</a></div>"
               + "<div class='marker_desc'>"+val[4]+"</div>"
               + "<div class='marker_address'>"+val[6]+"</div>"
