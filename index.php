@@ -147,9 +147,10 @@ include_once "header.php";
               $place[title] = htmlspecialchars_decode(addslashes(htmlspecialchars($place[title])));
               $place[description] = htmlspecialchars_decode(addslashes(htmlspecialchars($place[description])));
               $place[uri] = addslashes(htmlspecialchars($place[uri]));
+              $place[uri] = addslashes(htmlspecialchars($place[owner_email]));
               $place[address] = htmlspecialchars_decode(addslashes(htmlspecialchars($place[address])));
               echo "
-                markers.push(['".$place[title]."', '".$place[type]."', '".$place[lat]."', '".$place[lng]."', '".$place[description]."', '".$place[uri]."', '".$place[address]."']); 
+                markers.push(['".$place[title]."', '".$place[type]."', '".$place[lat]."', '".$place[lng]."', '".$place[description]."', '".$place[uri]."', '".$place[address]."', '".$place[owner_email]."']); 
                 markerTitles[".$marker_id."] = '".$place[title]."';
               "; 
               $count[$place[type]]++;
@@ -176,7 +177,6 @@ include_once "header.php";
           } else {
             iconSize = null;
           }
-
           // build this marker
           var markerImage = new google.maps.MarkerImage("./images/icons/"+val[1]+".png", null, null, null, iconSize);
           var marker = new google.maps.Marker({
@@ -206,6 +206,7 @@ include_once "header.php";
               "<div class='marker_title' style='font-weight:bold;'>"+val[0]+"</div>"
               + "<div class='marker_uri'><a target='_blank' href='"+markerURI+"'>"+markerURI_short+"</a></div>"
               + "<div class='marker_desc'>"+val[4]+"</div>"
+              + "<div class='marker_desc'>"+val[7]+"</div>"
               + "<div class='marker_address'>"+val[6]+"</div>"
             );
             infowindow.open(map, this);
