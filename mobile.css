@@ -1,0 +1,57 @@
+
+/* 
+these styles are only used on mobile devices 
+*/
+
+body
+{
+  width: auto;
+  font-size: 1em;
+}
+.menu
+{
+  display: none;
+}
+#modal_info,
+#modal_add
+{
+  position: absolute;
+  margin: 10px 0px;
+  top: 0;
+}
+#topbar
+{
+  width: 100%;
+  height: auto;
+}
+#topbar .logo,
+#topbar .search,
+#topbar .right
+{
+  display: none;
+}
+#topbar .btn
+{
+  font-size: .7em;
+  padding: .5em .75em;
+}
+#topbar .buttons
+{
+  float: none;
+  line-height: normal;
+  padding: .5em;
+  margin: 0px;
+}
+#topbar .left
+{
+  position: static;
+}
+
+
+/* landscape styles */
+@media screen and (orientation:landscape) {
+  #topbar
+  {
+    display: none;
+  }
+}

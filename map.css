@@ -1,0 +1,375 @@
+/* resets */
+*
+{
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+body
+{
+  color: #555;
+  width: 100%;
+}
+ul
+{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+img
+{
+  max-width: none;
+}
+form
+{
+  margin-bottom: 0px;
+}
+
+/* google maps */
+html, body
+{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow:hidden;
+}
+#map_canvas
+{
+  height: 100%;
+  width: 99%;
+  z-index: 1;
+}
+
+
+/*  hide mobile menu */
+.menu_mobile
+{
+  display: none;
+}
+/* footerbar*/
+.footerbar
+{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 3;
+	background: #fff;
+	width: 100%;
+	height: 40px;
+	border-top: 1px solid #026db9;
+	overflow: hidden;
+	box-shadow: 0 2px 26px #026DB9;
+	-moz-box-shadow: 0 2px 26px #026DB9;
+	-webkit-box-shadow: 0 2px 26px #026DB9;
+	padding-top: 10px;
+}
+/* marker list, right-side gutter */
+.menu
+{
+  position: absolute;
+  z-index: 2;
+  font-size: 20px;
+  font-weight: bold;
+  top: 0;
+  height: 100%;
+  width: 250px;
+  box-shadow: 2px 0 26px #026DB9;
+  -moz-box-shadow: 2px 0 26px #026DB9;
+  -webkit-box-shadow: 2 0 26px #026DB9;
+}
+.logo{
+	padding-top: 5px;
+}
+.logo img{
+  width: 120px;
+}
+.wrapper h3{
+  margin: 10px 0 0;
+}
+.wrapper p{
+  font-weight: normal;
+  font-size: 15px;
+}
+.toggle {
+	position: fixed;
+	top: 8%;
+	height: 29px;
+	width: 25px;
+	z-index: -1;
+	background-color: #fff;
+	opacity: 0.8;
+	border-radius: 4px 0 0 4px;
+	box-shadow: 2px 0 26px #026DB9;
+	-moz-box-shadow: 2px 0 26px #026DB9;
+	-webkit-box-shadow: 2px 0 26px #026DB9;
+}
+.menu .toggleRight
+{
+  right: 270px !important;
+  overflow: hidden;
+}
+.menu .wrapper
+{
+  background-color: #fff;
+  text-align: center;
+}
+.wrapper .buttons{
+	padding: 12px;
+}
+.wrapper .input-group .form-control{
+	border: none;
+	border-radius:0;
+}
+.wrapper .input-group .input-group-addon{
+	border: none;
+	border-radius: 0;
+  background: #026db9;
+  color: #fff;
+  font-weight: bold;
+}
+/* collapsible list */
+.list
+{
+  z-index: 3;
+  right: 0;
+  top: 0;
+  height: 100%;
+  overflow-y: hidden;
+  background-color: #026db9;
+}
+.typeahead.dropdown-menu
+{
+  max-width: 170px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.4);
+}
+.typeahead.dropdown-menu li
+{
+  font-size: 8pt;
+}
+.list .category
+{
+  font-size: 11pt;
+  color: #eee;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.list .category img
+{
+  margin-right: 5px;
+}
+.list .category span
+{
+  opacity: .5;
+}
+.list .category .category_item
+{
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.list .category .category_item:hover
+{
+  background-color: rgba(255,255,255,.03);
+}
+.list .category .category_info
+{
+  display: block;
+  overflow: hidden;
+  padding: 3px 6px;
+  color: #fff;
+}
+.list .category .category_info:hover 
+{
+  text-decoration: none;
+}
+.list .category .category_info:focus
+{
+  outline: none;
+}
+.list .category .category_toggle
+{
+  float: right;
+  padding: 10px;
+  height: 26px;
+  cursor: pointer;
+}
+.list .category .category_toggle.inactive
+{
+  opacity: .15;
+}
+.list .category .category_toggle.inactive:hover
+{
+  opacity: .5;
+}
+.list .category .category_toggle input
+{
+  display: none;
+}
+.list .category .category_toggle
+{
+  background-image: url("./images/icons/check.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 48px;
+  height: 48px;
+}
+.list .list-items
+{
+  display: none;
+}
+.list .list-items li
+{
+  border-top: 1px solid rgba(255,255,255,.03);
+}
+.list .list-items li a
+{
+  display: block;
+  font-size: 8pt;
+  padding: 5px 10px;
+  outline: none;
+  color: #ccc;
+  font-weight: normal;
+  line-height: 1.4em; 
+}
+.list .list-items li a:hover
+{
+  background-color: rgba(255,255,255,.03);
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+}
+.list .list-items li a:active
+{
+  color: #fff;
+  background-color: #444;
+}
+
+
+
+/* markers */
+.marker_label
+{
+  display: none;
+  position: relative; 
+  left: -50%; 
+  top: -8px;
+  white-space: nowrap; 
+  padding: 2px 4px; 
+  font-size: 8pt; 
+  background-color: rgba(0,0,0,.7); 
+  color: #fff;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.marker_title
+{
+  font-weight: bold;
+  max-width: 350px;
+}
+.marker_uri
+{
+  font-size: 9pt;
+  color: #999;
+}
+.marker_desc
+{
+  max-width: 300px;
+  color: #555;
+  font-size: 9pt;
+  margin-top: 10px;
+}
+.marker_address
+{
+  font-size: 8pt;
+  margin-top: 10px;
+  color: #999;
+}
+
+
+
+/* modals */
+.modal
+{
+  background-color: transparent;
+}
+.modal .modal-header
+{
+  background-color:#026db9;
+  color: #f5f5f5;
+}
+.modal .modal-header h3
+{
+  text-shadow: 0px 1px 0px #000;
+}
+.modal .modal-body
+{
+  background-color: #fff;
+}
+.modal .modal-body p span{
+  color: #999!important;
+}
+.modal .close
+{
+  color: #fff;
+  opacity: .7;
+  text-shadow: 0px 1px 0px #000;
+}
+.modal .close:hover
+{
+  color: #fff;
+  opacity: 1;
+}
+
+
+/* add marker modal */
+#modal_add .modal-body
+{
+  max-height: none;
+}
+#modal_add fieldset
+{
+  padding-top: 15px;
+}
+#modal_add .control-label
+{
+  font-weight: bold;
+}
+#modal_add .help-block
+{
+  font-size: 8pt;
+  color: #777;
+}
+#modal_add .modal-footer
+{
+  text-align: left;
+}
+/* choose submission method modal (only visible if Startup Genome integration is enabled) */
+#modal_add_choose ul li em
+{
+  display: block;
+  font-weight: bold;
+  font-style: normal;
+  margin-bottom: .5em;
+}
+#modal_add_choose ul li
+{
+  margin-top: 25px;
+}
+
+
+
+/* error overlay */
+.error
+{
+  position: absolute;
+  color: #ff0000;
+  font-weight: bold;
+  background-color: rgba(255,255,255,.7);
+  font-size: 11pt;
+  z-index: 9999999999;
+  top: 80px;
+  left: 20px;
+  padding: .7em 1em;
+  border-radius: 7px;
+  border: 2px dashed rgba(255,0,0,.6);
+}
