@@ -15,10 +15,10 @@ $exist = mysql_query("SELECT * FROM places WHERE title = '$title' LIMIT 1");
 if(mysql_num_rows($exist) == 1) { 
   $existing = mysql_fetch_assoc($exist);
   if ($existing[id] == 0){
-    echo "This company has already been added and is under review.";
+    echo "您的信息已经提交，正在审核中，请耐心等待.";
   }
   else{
-    echo "This company has already been added. Check our list on the right.";
+    echo "您的信息已经已经存在了，您可以通过右侧面板搜索快速找到.";
   }
   
   exit;
