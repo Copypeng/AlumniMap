@@ -133,10 +133,10 @@ include_once "header.php";
         markers = new Array();
         <?php
           $types = Array(
-              Array('2009', '2009届'),
-              Array('2008','2008届'),
-              Array('2007', '2007届'), 
-              Array('2006', '2006届'), 
+              Array('2009', '2009级'),
+              Array('2008','2008级'),
+              Array('2007', '2007级'), 
+              Array('2006', '2006级'), 
               Array('other', '更早...'),
               );
           $marker_id = 0;
@@ -331,10 +331,10 @@ include_once "header.php";
       <ul class="list" id="list">
         <?php
           $types = Array(
-              Array('2009', '2009届'),
-              Array('2008','2008届'),
-              Array('2007', '2007届'), 
-              Array('2006', '2006届'), 
+              Array('2009', '2009级'),
+              Array('2008','2008级'),
+              Array('2007', '2007级'), 
+              Array('2006', '2006级'), 
               Array('other', '更早...'),
               );
           if($show_events == true) {
