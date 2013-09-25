@@ -1,22 +1,22 @@
 <?php
 
 // mysql hostname
-$db_host = "localhost";
+$db_host = "";
 
 // database name
-$db_name = "copypeng_map2";
+$db_name = "";
 
 // database user name
-$db_user = "copypeng_map";
+$db_user = "";
 
 // database password
-$db_pass = ".KOweb";
+$db_pass = "";
 
 // admin username
-$admin_user = "map";
+$admin_user = "";
 
 // admin password
-$admin_pass = "map";
+$admin_pass = "";
 
 // Show events on the map? If set to "true", an event
 // category will appear in the marker list, and you can
