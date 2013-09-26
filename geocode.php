@@ -6,13 +6,10 @@ include_once "header.php";
 // and automatically geocode them.
 
 // google maps vars
-define("MAPS_HOST", "maps.googleapis.com");
+define("MAPS_HOST", "ditu.google.cn");
 
-// geocode all markers
+//geocode all markers
 geocode("places");
-
-
-
 
 // geocode function
 function geocode($table) {
@@ -66,12 +63,9 @@ function geocode($table) {
       usleep($delay);
     }
   }
-
   // finish
   if(@$hide_geocode_output != true) {
     echo mysql_num_rows($result)." $table geocoded<br />";
   }
-
 }
-
 ?>
