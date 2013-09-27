@@ -14,7 +14,7 @@ include_once "header.php";
     <script type="text/javascript" src="./scripts/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./bootstrap/js/bootstrap-typeahead.js"></script>
-    <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyC7a2MMoG2nkxwY6bmxjoULoiz2YTp43iI&sensor=false&language=cn"></script>
+    <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?&sensor=false&language=cn"></script>
     <script type="text/javascript" src="./scripts/label.js"></script>
     <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
     <script type="text/javascript">
