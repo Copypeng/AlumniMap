@@ -16,7 +16,7 @@ include_once "header.php";
     <script type="text/javascript" src="./bootstrap/js/bootstrap-typeahead.js"></script>
     <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?&sensor=false&language=cn"></script>
     <script type="text/javascript" src="./scripts/label.js"></script>
-    <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
+    <script type="text/javascript" src="./scripts/markerclusterer.js"></script>
     <script type="text/javascript">
       var map;
       var infowindow = null;
@@ -225,6 +225,38 @@ include_once "header.php";
           label.bindTo('clickable', marker);
           label.bindTo('zIndex', marker);
         });
+        var mcOptions = {gridSize: 10, maxZoom: 19};
+        var markerCluster = new MarkerClusterer(map, gmarkers, mcOptions);
+        var infowindowlist = new google.maps.InfoWindow({
+          content: ""
+        });
+      google.maps.event.addListener(markerCluster, "clusterclick", function(c) {
+      var currentZoom = map.getZoom();
+      infowindowlist.close();
+      if(currentZoom >= 17) {
+        var myLatlng = new google.maps.LatLng(c.getCenter().lat(), c.getCenter().lng());
+        var n = "";
+        var markerId = new Array();
+      
+        infowindowlist.close();
+        
+        n += '<div class="clusterList"><ul>';
+
+        for (var i = 0; i < c.markerClusterer_.clusters_[0].markers_.length; i++) {
+          markerId = (c.markerClusterer_.clusters_[0].markers_[i].list);
+          n += '<li class="clusterListItem"><a href="#" onclick="goToMarker(\'' + markerId + '\')">' + markerTitle[markerId] +'</a></li>'
+        }
+        n += '</ul></div>';
+
+        infowindowlist.setContent(n);
+        infowindowlist.setPosition(myLatlng);
+        infowindowlist.open(map);
+      }
+    });
+    
+    MarkerClusterer.prototype.onClick = function() { 
+      return true; 
+    };
 
 
         // zoom to marker if selected in search typeahead list
