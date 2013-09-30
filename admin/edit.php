@@ -51,13 +51,13 @@ if($task == "doedit") {
   </h1>
   <fieldset>
     <div class="form-group">
-      <label class="col-sm-2 control-label" for="">姓名</label>
+      <label class="col-sm-2 control-label" for="add_title">姓名</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="title" value="<?=$place[title]?>" id="">
+        <input type="text" class="form-control" name="title" value="<?=$place[title]?>" id="add_title">
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-2 control-label" for="">入学年份</label>
+      <label class="col-sm-2 control-label" for="input01">入学年份</label>
       <div class="col-sm-10">
         <select class="form-control" name="type">
           <option<? if($place[type] == "2009") {?> selected="selected"<? } ?>>2009年</option>
@@ -69,37 +69,37 @@ if($task == "doedit") {
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-2  control-label" for="">地址</label>
+      <label class="col-sm-2  control-label" for="add_address">地址</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="address" value="<?=$place[address]?>" id="">
+        <input type="text" class="form-control" name="address" value="<?=$place[address]?>" id="add_address">
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-2 control-label" for="">个人主页url</label>
+      <label class="col-sm-2 control-label" for="add_uri">个人主页url</label>
       <div class="col-sm-10">
-        <input type="url" class="form-control" name="uri" value="<?=$place[uri]?>" id="">
+        <input type="url" class="form-control" name="uri" value="<?=$place[uri]?>" id="add_uri">
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-2 control-label" for="">个人描述</label>
+      <label class="col-sm-2 control-label" for="add_description">个人描述</label>
       <div class="col-sm-10">
-        <textarea class="form-control" name="description"><?=$place[description]?></textarea>
+        <textarea class="form-control" name="description" id="add_description"><?=$place[description]?></textarea>
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-2 control-label" for="">工作单位</label>
+      <label class="col-sm-2 control-label" for="add_owner_name">工作单位</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="owner_name" value="<?=$place[owner_name]?>" id="">
+        <input type="text" class="form-control" name="owner_name" value="<?=$place[owner_name]?>" id="add_owner_name">
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-2 control-label" for="">邮箱地址</label>
+      <label class="col-sm-2 control-label" for="add_owner_email">邮箱地址</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" name="owner_email" value="<?=$place[owner_email]?>" id="">
+        <input type="email" class="form-control" name="owner_email" value="<?=$place[owner_email]?>" id="add_owner_email">
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-2 control-label" for="">标记位置</label>
+      <label class="col-sm-2 control-label" for="add_address">标记位置</label>
       <div class="col-sm-10">
         <input type="hidden" name="lat" id="mylat" value="<?=$place[lat]?>"/>
         <input type="hidden" name="lng" id="mylng" value="<?=$place[lng]?>"/>
