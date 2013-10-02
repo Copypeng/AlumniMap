@@ -95,7 +95,7 @@ include_once "header.php";
         ];
         // set map options
         var myOptions = {
-          zoom: 4,
+          zoom: 2,
           maxZoom: 19,
           minZoom: 2,
           center: new google.maps.LatLng(25.600094,-148.902344),
@@ -146,7 +146,7 @@ include_once "header.php";
             $places_total = mysql_num_rows($places);
             while($place = mysql_fetch_assoc($places)) {
               $place[title] = htmlspecialchars_decode(addslashes(htmlspecialchars($place[title])));
-              $place[description] = str_replace(array("\n", "\t", "\r"), "", htmlspecialchars_decode(addslashes(htmlspecialchars($place[description]))));
+              $place[description] = htmlspecialchars_decode(addslashes(htmlspecialchars($place[description])));
               $place[uri] = addslashes(htmlspecialchars($place[uri]));
               $place[owner_email] = addslashes(htmlspecialchars($place[owner_email]));
               $place[address] = htmlspecialchars_decode(addslashes(htmlspecialchars($place[address])));
@@ -225,19 +225,19 @@ include_once "header.php";
           label.bindTo('clickable', marker);
           label.bindTo('zIndex', marker);
         });
-        var mcOptions = {gridSize: 10, maxZoom: 19};
-        var markerCluster = new MarkerClusterer(map, gmarkers, mcOptions);
-        var infowindowlist = new google.maps.InfoWindow({
+          var mcOptions = {gridSize: 10, maxZoom: 19};
+          var markerCluster = new MarkerClusterer(map, gmarkers, mcOptions);
+          var infowindowlist = new google.maps.InfoWindow({
           content: ""
         });
-      google.maps.event.addListener(markerCluster, "clusterclick", function(c) {
+     google.maps.event.addListener(markerCluster, "clusterclick", function(c) {
       var currentZoom = map.getZoom();
       infowindowlist.close();
       if(currentZoom >= 17) {
         var myLatlng = new google.maps.LatLng(c.getCenter().lat(), c.getCenter().lng());
         var n = "";
         var markerId = new Array();
-      
+        
         infowindowlist.close();
         
         n += '<div class="clusterList"><ul>';
@@ -247,17 +247,14 @@ include_once "header.php";
           n += '<li class="clusterListItem"><a href="#" onclick="goToMarker(\'' + markerId + '\')">' + markerTitle[markerId] +'</a></li>'
         }
         n += '</ul></div>';
-
         infowindowlist.setContent(n);
         infowindowlist.setPosition(myLatlng);
         infowindowlist.open(map);
       }
     });
-    
-    MarkerClusterer.prototype.onClick = function() { 
+    MarkerClusterer.prototype.onClick = function(){
       return true; 
     };
-
 
         // zoom to marker if selected in search typeahead list
         $('#search').typeahead({
@@ -548,12 +545,10 @@ include_once "header.php";
         <!-- footerbar -->
     <div class="footerbar" id="footerbar">
       <div class="container">
-      <div class="left">
-      	Copyright©中国海洋大学. All Rights Reserved.
-        </div>
-        </div>
+      <div class="row">
+      	<div class="col-xs-6 col-md-4">Copyright©中国海洋大学. All Rights Reserved.</div>
+      </div>
     </div>
-
     <script>
 		$('#toggleRight').toggle(function() {
 			$('#menuRight').animate({
@@ -577,6 +572,5 @@ include_once "header.php";
 			document.getElementById('toggleRight').innerHTML = "<img src=\"images/icons/right-double-arrow.png\" width=\"25\">";
 		});
 	</script>
-	
   </body>
 </html>
