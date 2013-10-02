@@ -34,7 +34,6 @@ if($task == "doedit") {
   // geocode
   //$hide_geocode_output = true;
   //include "../geocode.php";
-  
   header("Location: index.php?view=$view&search=$search&p=$p");
   exit;
 }
@@ -53,49 +52,49 @@ if($task == "doedit") {
     <div class="form-group">
       <label class="col-sm-2 control-label" for="add_title">姓名</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="title" value="<?=$place[title]?>" id="add_title">
+        <input type="text" class="input form-control" name="title" value="<?=$place[title]?>" id="add_title">
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-2 control-label" for="input01">入学年份</label>
+      <label class="col-sm-2 control-label" for="">入学年份</label>
       <div class="col-sm-10">
-        <select class="form-control" name="type">
-          <option<? if($place[type] == "2009") {?> selected="selected"<? } ?>>2009年</option>
-          <option<? if($place[type] == "2008") {?> selected="selected"<? } ?>>2008年</option>
-          <option<? if($place[type] == "2007") {?> selected="selected"<? } ?>>2007年</option>
-          <option<? if($place[type] == "2006") {?> selected="selected"<? } ?>>2006年</option>
-          <option<? if($place[type] == "other") {?> selected="selected"<? } ?>>更早...</option>
-        </select>
+      <select class="input form-control" name="type">
+          <option<? if($place[type] == "2009") {?> selected="selected"<? } ?>>2009</option>
+          <option<? if($place[type] == "2008") {?> selected="selected"<? } ?>>2008</option>
+          <option<? if($place[type] == "2007") {?> selected="selected"<? } ?>>2007</option>
+          <option<? if($place[type] == "2006") {?> selected="selected"<? } ?>>2006</option>
+          <option<? if($place[type] == "other") {?> selected="selected"<? } ?>>other</option>
+      </select>
       </div>
     </div>
     <div class="form-group">
       <label class="col-sm-2  control-label" for="add_address">地址</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="address" value="<?=$place[address]?>" id="add_address">
+        <input type="text" class="input form-control" name="address" value="<?=$place[address]?>" id="add_address">
       </div>
     </div>
     <div class="form-group">
       <label class="col-sm-2 control-label" for="add_uri">个人主页url</label>
       <div class="col-sm-10">
-        <input type="url" class="form-control" name="uri" value="<?=$place[uri]?>" id="add_uri">
+        <input type="url" class="input form-control" name="uri" value="<?=$place[uri]?>" id="add_uri">
       </div>
     </div>
     <div class="form-group">
       <label class="col-sm-2 control-label" for="add_description">个人描述</label>
       <div class="col-sm-10">
-        <textarea class="form-control" name="description" id="add_description"><?=$place[description]?></textarea>
+        <textarea class="input form-control" name="description" id="add_description"><?=$place[description]?></textarea>
       </div>
     </div>
     <div class="form-group">
       <label class="col-sm-2 control-label" for="add_owner_name">工作单位</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="owner_name" value="<?=$place[owner_name]?>" id="add_owner_name">
+        <input type="text" class="input form-control" name="owner_name" value="<?=$place[owner_name]?>" id="add_owner_name">
       </div>
     </div>
     <div class="form-group">
       <label class="col-sm-2 control-label" for="add_owner_email">邮箱地址</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" name="owner_email" value="<?=$place[owner_email]?>" id="add_owner_email">
+        <input type="email" class="input form-control" name="owner_email" value="<?=$place[owner_email]?>" id="add_owner_email">
       </div>
     </div>
     <div class="form-group">
@@ -103,9 +102,8 @@ if($task == "doedit") {
       <div class="col-sm-10">
         <input type="hidden" name="lat" id="mylat" value="<?=$place[lat]?>"/>
         <input type="hidden" name="lng" id="mylng" value="<?=$place[lng]?>"/>
-        <div id="map" style="width:80%;height:300px;">
-        </div>
-        <script type="text/javascript">
+        <div id="map" style="width:80%;height:300px;"></div>
+       	<script>
           var map = new google.maps.Map( document.getElementById('map'), {
             zoom: 17,
             center: new google.maps.LatLng( <?=$place[lat]?>, <?=$place[lng]?> ),
