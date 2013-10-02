@@ -41,6 +41,8 @@ $total_all = mysql_num_rows(mysql_query("SELECT id FROM places"));
 $admin_head = "
   <html>
   <head>
+  	<meta charset='utf-8'>
+  	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>管理面板——中国海洋大学校友地图</title>
     <link href='../bootstrap/css/bootstrap.min.css' rel='stylesheet' type='text/css'/>
     <link rel='stylesheet' href='flat-ui.css' type='text/css'/>
