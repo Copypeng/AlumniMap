@@ -98,7 +98,7 @@ include_once "header.php";
           zoom: 4,
           maxZoom: 19,
           minZoom: 2,
-          center: new google.maps.LatLng(33.137551,122.519531),
+          center: new google.maps.LatLng(25.600094,-148.902344),
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           streetViewControl: true,
           mapTypeControl: true,
