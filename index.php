@@ -14,7 +14,7 @@ include_once "header.php";
     <script type="text/javascript" src="./scripts/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./bootstrap/js/bootstrap-typeahead.js"></script>
-    <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?&sensor=false&language=cn"></script>
+    <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyC7a2MMoG2nkxwY6bmxjoULoiz2YTp43iI&sensor=false&language=cn"></script>
     <script type="text/javascript" src="./scripts/label.js"></script>
     <script type="text/javascript" src="./scripts/markerclusterer.js"></script>
     <script type="text/javascript">
@@ -444,12 +444,6 @@ include_once "header.php";
                 			</div>
             			</div>
             			<div class="form-group">
-              				<label class="col-sm-3 control-label" for="add_owner_email">您的邮箱：</label>
-              				<div class="col-sm-9">
-               					<input type="email" class="form-control" name="owner_email" id="add_owner_email">
-              				</div>
-            			</div>
-            			<div class="form-group">
               				<label class="col-sm-3 control-label" for="input01">入学年份：</label>
               				<div class="col-sm-9">
                 				<select name="type" id="add_type" class="form-control">
@@ -459,6 +453,12 @@ include_once "header.php";
                   				<option value="2006">2006年</option>
                   				<option value="other">更早...</option>
                 				</select>
+              				</div>
+            			</div>
+            			<div class="form-group">
+              				<label class="col-sm-3 control-label" for="add_owner_email">您的邮箱：</label>
+              				<div class="col-sm-9">
+               					<input type="email" class="form-control" name="owner_email" id="add_owner_email">
               				</div>
             			</div>
             			<div class="form-group">
