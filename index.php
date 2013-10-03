@@ -439,21 +439,19 @@ include_once "header.php";
           					<fieldset>
           				<div class="form-group">
               				<label class="col-sm-3 control-label" for="add_title">您的姓名：</label>
-              				<div class="col-sm-9">
+              				<div class="col-sm-3">
                 				<input type="text" class="form-control" name="title" id="add_title" maxlength="100" autocomplete="off">
                 			</div>
-            			</div>
-            			<div class="form-group">
               				<label class="col-sm-3 control-label" for="input01">入学年份：</label>
-              				<div class="col-sm-9">
-                				<select name="type" id="add_type" class="form-control">
+              				<div class="col-sm-3">
+                				<select name="type" id="add_type" class="col-sm-3 form-control">
                   				<option value="2009">2009年</option>
                   				<option value="2008">2008年</option>
                   				<option value="2007">2007年</option>
                   				<option value="2006">2006年</option>
                   				<option value="other">更早...</option>
                 				</select>
-              				</div>
+                			</div>
             			</div>
             			<div class="form-group">
               				<label class="col-sm-3 control-label" for="add_owner_email">您的邮箱：</label>
