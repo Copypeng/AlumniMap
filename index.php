@@ -145,17 +145,17 @@ mysql_query("SET NAMES 'utf8'");
               );
           $marker_id = 0;
           foreach($types as $type) {
-            $places = mysql_query("SELECT * FROM places WHERE approved='1' AND type='$type[0]' ORDER BY title");
+            $places = mysql_query("SELECT * FROM places WHERE approved='1' AND type='$type[0]' ORDER BY name");
             $places_total = mysql_num_rows($places);
             while($place = mysql_fetch_assoc($places)) {
-              $place[title] = htmlspecialchars_decode(addslashes(htmlspecialchars($place[title])));
+              $place[name] = htmlspecialchars_decode(addslashes(htmlspecialchars($place[name])));
               $place[description] = str_replace(array("\n", "\t", "\r"), "", htmlspecialchars_decode(addslashes(htmlspecialchars($place[description]))));
               $place[uri] = addslashes(htmlspecialchars($place[uri]));
-              $place[owner_email] = addslashes(htmlspecialchars($place[owner_email]));
+              $place[email] = addslashes(htmlspecialchars($place[email]));
               $place[address] = htmlspecialchars_decode(addslashes(htmlspecialchars($place[address])));
               echo "
-                markers.push(['".$place[title]."', '".$place[type]."', '".$place[lat]."', '".$place[lng]."', '".$place[description]."', '".$place[uri]."', '".$place[address]."', '".$place[owner_email]."']); 
-                markerTitles[".$marker_id."] = '".$place[title]."';
+                markers.push(['".$place[name]."', '".$place[type]."', '".$place[lat]."', '".$place[lng]."', '".$place[description]."', '".$place[uri]."', '".$place[address]."', '".$place[email]."']); 
+                markerTitles[".$marker_id."] = '".$place[name]."';
               "; 
               $count[$place[type]]++;
               $marker_id++;
@@ -376,7 +376,7 @@ mysql_query("SET NAMES 'utf8'");
           $marker_id = 0;
           foreach($types as $type) {
             if($type[0] != "event") {
-              $markers = mysql_query("SELECT * FROM places WHERE approved='1' AND type='$type[0]' ORDER BY title");
+              $markers = mysql_query("SELECT * FROM places WHERE approved='1' AND type='$type[0]' ORDER BY name");
             } else {
               $markers = mysql_query("SELECT * FROM events WHERE start_date > ".time()." AND start_date < ".(time()+4838400)." ORDER BY id DESC");
             }
@@ -392,7 +392,7 @@ mysql_query("SET NAMES 'utf8'");
             while($marker = mysql_fetch_assoc($markers)) {
               echo "
                   <li class='".$marker[type]."'>
-                    <a href='#' onMouseOver=\"markerListMouseOver('".$marker_id."')\" onMouseOut=\"markerListMouseOut('".$marker_id."')\" onClick=\"goToMarker('".$marker_id."');\">".$marker[title]."</a>
+                    <a href='#' onMouseOver=\"markerListMouseOver('".$marker_id."')\" onMouseOut=\"markerListMouseOut('".$marker_id."')\" onClick=\"goToMarker('".$marker_id."');\">".$marker[name]."</a>
                   </li>
               ";
               $marker_id++;
@@ -443,7 +443,7 @@ mysql_query("SET NAMES 'utf8'");
           				<div class="form-group">
               				<label class="col-sm-3 control-label" for="add_title">您的姓名：</label>
               				<div class="col-sm-3">
-                				<input type="text" class="form-control" name="title" id="add_title" maxlength="100" autocomplete="off">
+                				<input type="text" class="form-control" name="name" id="add_title" maxlength="100" autocomplete="off">
                 			</div>
               				<label class="col-sm-3 control-label" for="input01">入学年份：</label>
               				<div class="col-sm-3">
@@ -459,13 +459,13 @@ mysql_query("SET NAMES 'utf8'");
             			<div class="form-group">
               				<label class="col-sm-3 control-label" for="add_owner_email">您的邮箱：</label>
               				<div class="col-sm-9">
-               					<input type="email" class="form-control" name="owner_email" id="add_owner_email">
+               					<input type="email" class="form-control" name="email" id="add_owner_email">
               				</div>
             			</div>
             			<div class="form-group">
               				<label class="col-sm-3 control-label" for="add_owner_name">工作单位：</label>
              				<div class="col-sm-9">
-                				<input type="text" class="form-control" name="owner_name" id="add_owner_name" maxlength="100">
+                				<input type="text" class="form-control" name="employer_name" id="add_owner_name" maxlength="100">
                 				<p class="help-block">如：美国麻省理工学院，华为技术有限公司，国家海洋局等</p>
              				</div>
            				</div>
@@ -512,9 +512,9 @@ mysql_query("SET NAMES 'utf8'");
         event.preventDefault(); 
         // get values
         var $form = $( this ),
-            owner_name = $form.find( '#add_owner_name' ).val(),
-            owner_email = $form.find( '#add_owner_email' ).val(),
-            title = $form.find( '#add_title' ).val(),
+            employer_name = $form.find( '#add_owner_name' ).val(),
+            email = $form.find( '#add_owner_email' ).val(),
+            name = $form.find( '#add_title' ).val(),
             type = $form.find( '#add_type' ).val(),
             address = $form.find( '#add_address' ).val(),
             uri = $form.find( '#add_uri' ).val(),
@@ -522,7 +522,7 @@ mysql_query("SET NAMES 'utf8'");
             url = $form.attr( 'action' );
 
         // send data and get results
-        $.post( url, { owner_name: owner_name, owner_email: owner_email, title: title, type: type, address: address, uri: uri, description: description },
+        $.post( url, { employer_name: employer_name, email: email, name: name, type: type, address: address, uri: uri, description: description },
           function( data ) {
             var content = $( data ).find( '#content' );
             

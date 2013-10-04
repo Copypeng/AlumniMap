@@ -19,17 +19,17 @@ $place = mysql_fetch_assoc($place_query);
 
 // do place edit if requested
 if($task == "doedit") {
-  $title = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['title'] ) );
+  $name = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['name'] ) );
   $type = $_POST['type'];
   $address = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['address'] ) );
   $uri = $_POST['uri'];
   $description = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['description'] ) );
-  $owner_name = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['owner_name'] ) );
-  $owner_email = $_POST['owner_email'];
+  $employer_name = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['employer_name'] ) );
+  $email = $_POST['email'];
   $lat = (float) $_POST['lat'];
   $lng = (float) $_POST['lng'];
   
-  mysql_query("UPDATE places SET title='$title', type='$type', address='$address', uri='$uri', lat='$lat', lng='$lng', description='$description', owner_name='$owner_name', owner_email='$owner_email' WHERE id='$place_id' LIMIT 1") or die(mysql_error());
+  mysql_query("UPDATE places SET name='$name', type='$type', address='$address', uri='$uri', lat='$lat', lng='$lng', description='$description', employer_name='$employer_name', email='$email' WHERE id='$place_id' LIMIT 1") or die(mysql_error());
   
   // geocode
   //$hide_geocode_output = true;
@@ -50,13 +50,13 @@ if($task == "doedit") {
   </h1>
   <fieldset>
     <div class="form-group">
-      <label class="col-sm-2 control-label" for="add_title">姓名</label>
+      <label class="col-sm-2 control-label">姓名</label>
       <div class="col-sm-10">
-        <input type="text" class="input form-control" name="title" value="<?=$place[title]?>" id="add_title">
+        <input type="text" class="input form-control" name="name" value="<?=$place[name]?>">
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-2 control-label" for="">入学年份</label>
+      <label class="col-sm-2 control-label">入学年份</label>
       <div class="col-sm-10">
       <select class="input form-control" name="type">
           <option<? if($place[type] == "2009") {?> selected="selected"<? } ?>>2009</option>
@@ -86,15 +86,15 @@ if($task == "doedit") {
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-2 control-label" for="add_owner_name">工作单位</label>
+      <label class="col-sm-2 control-label">工作单位</label>
       <div class="col-sm-10">
-        <input type="text" class="input form-control" name="owner_name" value="<?=$place[owner_name]?>" id="add_owner_name">
+        <input type="text" class="input form-control" name="employer_name" value="<?=$place[employer_name]?>">
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-2 control-label" for="add_owner_email">邮箱地址</label>
+      <label class="col-sm-2 control-label">邮箱地址</label>
       <div class="col-sm-10">
-        <input type="email" class="input form-control" name="owner_email" value="<?=$place[owner_email]?>" id="add_owner_email">
+        <input type="email" class="input form-control" name="email" value="<?=$place[email]?>">
       </div>
     </div>
     <div class="form-group">

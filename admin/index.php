@@ -34,21 +34,21 @@ $page_end = $page_start + $items_per_page;
 
 // get results
 if($view == "approved") {
-  $places = mysql_query("SELECT * FROM places WHERE approved='1' ORDER BY title LIMIT $page_start, $items_per_page");
+  $places = mysql_query("SELECT * FROM places WHERE approved='1' ORDER BY name LIMIT $page_start, $items_per_page");
   $total = $total_approved;
 } else if($view == "rejected") {
-  $places = mysql_query("SELECT * FROM places WHERE approved='0' ORDER BY title LIMIT $page_start, $items_per_page");
+  $places = mysql_query("SELECT * FROM places WHERE approved='0' ORDER BY name LIMIT $page_start, $items_per_page");
   $total = $total_rejected;
 } else if($view == "pending") {
   $places = mysql_query("SELECT * FROM places WHERE approved IS null ORDER BY id DESC LIMIT $page_start, $items_per_page");
   $total = $total_pending;
 } else if($view == "") {
-  $places = mysql_query("SELECT * FROM places ORDER BY title LIMIT $page_start, $items_per_page");
+  $places = mysql_query("SELECT * FROM places ORDER BY name LIMIT $page_start, $items_per_page");
   $total = $total_all;
 }
 if($search != "") {
-  $places = mysql_query("SELECT * FROM places WHERE title LIKE '%$search%' ORDER BY title LIMIT $page_start, $items_per_page");
-  $total = mysql_num_rows(mysql_query("SELECT id FROM places WHERE title LIKE '%$search%'")); 
+  $places = mysql_query("SELECT * FROM places WHERE name LIKE '%$search%' ORDER BY name LIMIT $page_start, $items_per_page");
+  $total = mysql_num_rows(mysql_query("SELECT id FROM places WHERE name LIKE '%$search%'")); 
 }
 
 echo $admin_head;
@@ -96,7 +96,7 @@ echo $admin_head;
             </div>
             <div class='place_info'>
               <a href='http://$place[uri]' target='_blank'>
-                $place[title]
+                $place[name]
                 <span class='url'>
                   $place[uri]
                 </span>

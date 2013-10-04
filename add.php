@@ -1,16 +1,16 @@
 <?php
 include_once "header.php";
 
-$owner_name = mysql_real_escape_string(parseInput($_POST['owner_name']));
-$owner_email = mysql_real_escape_string(parseInput($_POST['owner_email']));
-$title = mysql_real_escape_string(parseInput($_POST['title']));
+$employer_name = mysql_real_escape_string(parseInput($_POST['employer_name']));
+$email = mysql_real_escape_string(parseInput($_POST['email']));
+$name = mysql_real_escape_string(parseInput($_POST['name']));
 $type = mysql_real_escape_string(parseInput($_POST['type']));
 $address = mysql_real_escape_string(parseInput($_POST['address']));
 $uri = mysql_real_escape_string(parseInput($_POST['uri']));
 $description = mysql_real_escape_string(parseInput($_POST['description']));
 
 // validate fields
-$exist = mysql_query("SELECT * FROM places WHERE title = '$title' LIMIT 1");
+$exist = mysql_query("SELECT * FROM places WHERE name = '$name' LIMIT 1");
 if(mysql_num_rows($exist) == 1) { 
   $existing = mysql_fetch_assoc($exist);
   if ($existing[id] == 0){
@@ -23,13 +23,13 @@ if(mysql_num_rows($exist) == 1) {
   exit;
 }
 
-else if (empty($title) || empty($type) || empty($address) || empty($uri) || empty($description) || empty($owner_name) || empty($owner_email)) {
+else if (empty($name) || empty($type) || empty($address) || empty($uri) || empty($description) || empty($employer_name) || empty($email)) {
   echo "填入的信息不完整，请核对后重新提交."; 
   exit;
   
 } else {
   // insert into db, wait for approval
-  $insert = mysql_query("INSERT INTO places (approved, title, type, address, uri, description, owner_name, owner_email) VALUES (null, _utf8'$title', '$type', _utf8'$address', '$uri', _utf8'$description', _utf8'$owner_name', '$owner_email')") or die(mysql_error());
+  $insert = mysql_query("INSERT INTO places (approved, name, type, address, uri, description, employer_name, email) VALUES (null, _utf8'$name', '$type', _utf8'$address', '$uri', _utf8'$description', _utf8'$employer_name', '$email')") or die(mysql_error());
 
   // geocode new submission
   $hide_geocode_output = true;
