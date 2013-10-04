@@ -27,7 +27,7 @@ function geocode($table) {
     $geocode_pending = true;
 
     while ($geocode_pending) {
-      $address = $row["address"];
+      $address = utf8_encode($row["address"]);
       $id = $row["id"];
       $request_url = $base_url . "?address=" . urlencode($address) . "&sensor=false";
       $xml = simplexml_load_file($request_url) or die("url not loading");

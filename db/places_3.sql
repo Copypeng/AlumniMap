@@ -12,4 +12,4 @@ CREATE TABLE IF NOT EXISTS `places` (
   `owner_email` varchar(100) NOT NULL,  
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci; 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
