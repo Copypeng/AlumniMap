@@ -8,11 +8,8 @@ CREATE TABLE IF NOT EXISTS `places` (
   `address` varchar(200) NOT NULL,
   `uri` varchar(200) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `sector` varchar(50) NOT NULL,
   `owner_name` varchar(100) NOT NULL,
   `owner_email` varchar(100) NOT NULL,  
-  `sg_organization_id` int(9) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci; 
-
