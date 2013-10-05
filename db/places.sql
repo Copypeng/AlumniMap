@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `places` (
   `uri` varchar(200) NOT NULL,
   `description` varchar(255) NOT NULL,
   `employer_name` varchar(100) NOT NULL,
+  `position` varchar(100) DEFAULT NULL,
   `email` varchar(100) NOT NULL,  
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)

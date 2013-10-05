@@ -441,12 +441,12 @@ mysql_query("SET NAMES 'utf8'");
        				<div class="modal-body">
           					<fieldset>
           				<div class="form-group">
-              				<label class="col-sm-3 control-label" for="add_title">您的姓名：</label>
-              				<div class="col-sm-3">
+              				<label class="col-sm-2 control-label" for="add_title">您的姓名</label>
+              				<div class="col-sm-4">
                 				<input type="text" class="form-control" name="name" id="add_title" maxlength="100" autocomplete="off">
                 			</div>
-              				<label class="col-sm-3 control-label" for="input01">入学年份：</label>
-              				<div class="col-sm-3">
+              				<label class="col-sm-2 control-label" for="input01">入学年份</label>
+              				<div class="col-sm-4">
                 				<select name="type" id="add_type" class="col-sm-3 form-control">
                   				<option value="2009">2009年</option>
                   				<option value="2008">2008年</option>
@@ -457,27 +457,32 @@ mysql_query("SET NAMES 'utf8'");
                 			</div>
             			</div>
                   <div class="form-group">
-                      <label class="col-sm-3 control-label" for="add_owner_name">工作单位：</label>
-                    <div class="col-sm-9">
+                    <label class="col-sm-2 control-label" for="add_owner_name">工作单位</label>
+                    <div class="col-sm-5">
                         <input type="text" class="form-control" name="employer_name" id="add_owner_name" maxlength="100">
                         <p class="help-block">如：美国麻省理工学院，华为技术有限公司，国家海洋局等</p>
                     </div>
+                    <label class="col-sm-1 control-label" for="add_position">职务</label>
+                    <div class="col-sm-4">
+                     	<input type="text" class="form-control" name="position" id="add_position">
+                     	<p class="help-block">选填，我们不会将其公开</p>
+                    </div>
                   </div>
             			<div class="form-group">
-              				<label class="col-sm-3 control-label" for="add_owner_email">您的邮箱：</label>
+              				<label class="col-sm-3 control-label" for="add_owner_email">您的邮箱</label>
               				<div class="col-sm-9">
                					<input type="email" class="form-control" name="email" id="add_owner_email">
               				</div>
             			</div>
             			<div class="form-group">
-              				<label class="col-sm-3 control-label" for="add_address">标记地址：</label>
+              				<label class="col-sm-3 control-label" for="add_address">标记地址</label>
               				<div class="col-sm-9">
                 				<input type="text" class="form-control" name="address" id="add_address">
                 				<p class="help-block">请填写您所处位置的经纬度（如:<a href="http://goo.gl/maps/Mo9h1" target="_blank">36.060561, 120.334635</a>）或者详细地址（如:<a href="http://goo.gl/maps/C9r9x" target="_blank">青岛市崂山区松岭路238号</a>），如果您的地址在<a href="http://ditu.google.cn/" target="_blank">谷歌地图</a>上可以生效，那么在这里也可以</p>
               				</div>
             			</div>
             			<div class="form-group">
-              				<label class="col-sm-3 control-label" for="add_uri">个人主页：</label>
+              				<label class="col-sm-3 control-label" for="add_uri">个人主页</label>
               				<div class="col-sm-9">
                 				<input type="url" class="form-control" id="add_uri" name="uri" placeholder="http://">
                 				<p class="help-block">
@@ -486,7 +491,7 @@ mysql_query("SET NAMES 'utf8'");
               				</div>
             			</div>
             			<div class="form-group">
-              				<label class="col-sm-3 control-label" for="add_description">自我描述：</label>
+              				<label class="col-sm-3 control-label" for="add_description">自我描述</label>
               			<div class="col-sm-9">
                 			<textarea class="form-control" rows="3" id="add_description" name="description" maxlength="150"></textarea>
                 			<p class="help-block">
@@ -513,6 +518,7 @@ mysql_query("SET NAMES 'utf8'");
         // get values
         var $form = $( this ),
             employer_name = $form.find( '#add_owner_name' ).val(),
+            position = $form.find( '#add_position' ).val(),
             email = $form.find( '#add_owner_email' ).val(),
             name = $form.find( '#add_title' ).val(),
             type = $form.find( '#add_type' ).val(),
@@ -522,7 +528,7 @@ mysql_query("SET NAMES 'utf8'");
             url = $form.attr( 'action' );
 
         // send data and get results
-        $.post( url, { employer_name: employer_name, email: email, name: name, type: type, address: address, uri: uri, description: description },
+        $.post( url, { employer_name: employer_name, position: position, email: email, name: name, type: type, address: address, uri: uri, description: description },
           function( data ) {
             var content = $( data ).find( '#content' );
             
