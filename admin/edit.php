@@ -25,11 +25,12 @@ if($task == "doedit") {
   $uri = $_POST['uri'];
   $description = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['description'] ) );
   $employer_name = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['employer_name'] ) );
+  $position = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['position'] ) );
   $email = $_POST['email'];
   $lat = (float) $_POST['lat'];
   $lng = (float) $_POST['lng'];
   
-  mysql_query("UPDATE places SET name='$name', type='$type', address='$address', uri='$uri', lat='$lat', lng='$lng', description='$description', employer_name='$employer_name', email='$email' WHERE id='$place_id' LIMIT 1") or die(mysql_error());
+  mysql_query("UPDATE places SET name='$name', type='$type', address='$address', uri='$uri', lat='$lat', lng='$lng', description='$description', employer_name='$employer_name', position='$position', email='$email' WHERE id='$place_id' LIMIT 1") or die(mysql_error());
   
   // geocode
   //$hide_geocode_output = true;
@@ -51,13 +52,11 @@ if($task == "doedit") {
   <fieldset>
     <div class="form-group">
       <label class="col-sm-2 control-label">姓名</label>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
         <input type="text" class="input form-control" name="name" value="<?=$place[name]?>">
       </div>
-    </div>
-    <div class="form-group">
       <label class="col-sm-2 control-label">入学年份</label>
-      <div class="col-sm-10">
+      <div class="col-sm-4">
       <select class="input form-control" name="type">
           <option<? if($place[type] == "2009") {?> selected="selected"<? } ?>>2009</option>
           <option<? if($place[type] == "2008") {?> selected="selected"<? } ?>>2008</option>
@@ -65,6 +64,16 @@ if($task == "doedit") {
           <option<? if($place[type] == "2006") {?> selected="selected"<? } ?>>2006</option>
           <option<? if($place[type] == "other") {?> selected="selected"<? } ?>>other</option>
       </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">工作单位</label>
+      <div class="col-sm-4">
+        <input type="text" class="input form-control" name="employer_name" value="<?=$place[employer_name]?>">
+      </div>
+      <label class="col-sm-2 control-label">职 务</label>
+      <div class="col-sm-4">
+        <input type="text" class="input form-control" name="position" value="<?=$place[position]?>">
       </div>
     </div>
     <div class="form-group">
@@ -83,12 +92,6 @@ if($task == "doedit") {
       <label class="col-sm-2 control-label" for="add_description">个人描述</label>
       <div class="col-sm-10">
         <textarea class="input form-control" name="description" id="add_description"><?=$place[description]?></textarea>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-sm-2 control-label">工作单位</label>
-      <div class="col-sm-10">
-        <input type="text" class="input form-control" name="employer_name" value="<?=$place[employer_name]?>">
       </div>
     </div>
     <div class="form-group">

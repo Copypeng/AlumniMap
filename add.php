@@ -2,6 +2,7 @@
 include_once "header.php";
 
 $employer_name = mysql_real_escape_string(parseInput($_POST['employer_name']));
+$position = mysql_real_escape_string(parseInput($_POST['position']));
 $email = mysql_real_escape_string(parseInput($_POST['email']));
 $name = mysql_real_escape_string(parseInput($_POST['name']));
 $type = mysql_real_escape_string(parseInput($_POST['type']));
@@ -29,7 +30,7 @@ else if (empty($name) || empty($type) || empty($address) || empty($uri) || empty
   
 } else {
   // insert into db, wait for approval
-  $insert = mysql_query("INSERT INTO places (approved, name, type, address, uri, description, employer_name, email) VALUES (null, _utf8'$name', '$type', _utf8'$address', '$uri', _utf8'$description', _utf8'$employer_name', '$email')") or die(mysql_error());
+  $insert = mysql_query("INSERT INTO places (approved, name, type, address, uri, description, employer_name, position, email) VALUES (null, _utf8'$name', '$type', _utf8'$address', '$uri', _utf8'$description', _utf8'$employer_name', _utf8'$position', '$email')") or die(mysql_error());
 
   // geocode new submission
   $hide_geocode_output = true;
