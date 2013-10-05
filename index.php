@@ -456,19 +456,19 @@ mysql_query("SET NAMES 'utf8'");
                 				</select>
                 			</div>
             			</div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label" for="add_owner_name">工作单位：</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="employer_name" id="add_owner_name" maxlength="100">
+                        <p class="help-block">如：美国麻省理工学院，华为技术有限公司，国家海洋局等</p>
+                    </div>
+                  </div>
             			<div class="form-group">
               				<label class="col-sm-3 control-label" for="add_owner_email">您的邮箱：</label>
               				<div class="col-sm-9">
                					<input type="email" class="form-control" name="email" id="add_owner_email">
               				</div>
             			</div>
-            			<div class="form-group">
-              				<label class="col-sm-3 control-label" for="add_owner_name">工作单位：</label>
-             				<div class="col-sm-9">
-                				<input type="text" class="form-control" name="employer_name" id="add_owner_name" maxlength="100">
-                				<p class="help-block">如：美国麻省理工学院，华为技术有限公司，国家海洋局等</p>
-             				</div>
-           				</div>
             			<div class="form-group">
               				<label class="col-sm-3 control-label" for="add_address">标记地址：</label>
               				<div class="col-sm-9">
