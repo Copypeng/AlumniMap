@@ -465,25 +465,37 @@ mysql_query("SET NAMES 'utf8'");
                     <label class="col-sm-1 control-label" for="add_position">职务</label>
                     <div class="col-sm-4">
                      	<input type="text" class="form-control" name="position" id="add_position">
-                     	<p class="help-block">选填，我们不会将其公开</p>
+                     	<p class="help-block"><b>选填</b>，我们不会将其公开</p>
                     </div>
                   </div>
+                <div class="form-group">
+              		<label class="col-sm-2 control-label" for="add_owner_email">您的邮箱</label>
+              		<div class="col-sm-4">
+               			<input type="email" class="form-control" name="email" id="add_owner_email">
+              		</div>
+              		<label class="col-sm-2 control-label" for="add_phone_number">联系电话</label>
+              		<div class="col-sm-4">
+               			<input type="text" class="form-control" name="phone_number" id="add_phone_number">
+               			<p class="help-block"><b>选填</b>，我们不会将其公开</p>
+              		</div>
+            	</div>
+                  <div class="form-group">
+                  	<label class="col-sm-3 control-label" for="add_student_work">曾参与社会工作</label>
+              		<div class="col-sm-9">
+               			<input type="text" class="form-control" name="student_work" id="add_student_work">
+               			<p class="help-block">如：2010年校学生会XX部部长</p>
+              		</div>
+            	  </div>
             			<div class="form-group">
-              				<label class="col-sm-3 control-label" for="add_owner_email">您的邮箱</label>
-              				<div class="col-sm-9">
-               					<input type="email" class="form-control" name="email" id="add_owner_email">
-              				</div>
-            			</div>
-            			<div class="form-group">
-              				<label class="col-sm-3 control-label" for="add_address">标记地址</label>
-              				<div class="col-sm-9">
+              				<label class="col-sm-2 control-label" for="add_address">标记地址</label>
+              				<div class="col-sm-10">
                 				<input type="text" class="form-control" name="address" id="add_address">
                 				<p class="help-block">请填写您所处位置的经纬度（如:<a href="http://goo.gl/maps/Mo9h1" target="_blank">36.060561, 120.334635</a>）或者详细地址（如:<a href="http://goo.gl/maps/C9r9x" target="_blank">青岛市崂山区松岭路238号</a>），如果您的地址在<a href="http://ditu.google.cn/" target="_blank">谷歌地图</a>上可以生效，那么在这里也可以</p>
               				</div>
             			</div>
             			<div class="form-group">
-              				<label class="col-sm-3 control-label" for="add_uri">个人主页</label>
-              				<div class="col-sm-9">
+              				<label class="col-sm-2 control-label" for="add_uri">个人主页</label>
+              				<div class="col-sm-10">
                 				<input type="url" class="form-control" id="add_uri" name="uri" placeholder="http://">
                 				<p class="help-block">
                   					比如新浪微博个人主页<a href="http://e.weibo.com/oucnews" target="_blank">http://e.weibo.com/oucnews</a>，不要漏掉 http:// 哦
@@ -491,8 +503,8 @@ mysql_query("SET NAMES 'utf8'");
               				</div>
             			</div>
             			<div class="form-group">
-              				<label class="col-sm-3 control-label" for="add_description">自我描述</label>
-              			<div class="col-sm-9">
+              				<label class="col-sm-2 control-label" for="add_description">自我描述</label>
+              			<div class="col-sm-10">
                 			<textarea class="form-control" rows="3" id="add_description" name="description" maxlength="150"></textarea>
                 			<p class="help-block">
                   				简洁，有力。您最近从事什么工作？您的人生格言？150字以内
@@ -519,6 +531,8 @@ mysql_query("SET NAMES 'utf8'");
         var $form = $( this ),
             employer_name = $form.find( '#add_owner_name' ).val(),
             position = $form.find( '#add_position' ).val(),
+            student_work = $form.find( '#add_student_work' ).val(),
+            phone_number = $form.find( '#add_phone_number' ).val(),
             email = $form.find( '#add_owner_email' ).val(),
             name = $form.find( '#add_title' ).val(),
             type = $form.find( '#add_type' ).val(),
@@ -528,7 +542,7 @@ mysql_query("SET NAMES 'utf8'");
             url = $form.attr( 'action' );
 
         // send data and get results
-        $.post( url, { employer_name: employer_name, position: position, email: email, name: name, type: type, address: address, uri: uri, description: description },
+        $.post( url, { employer_name: employer_name, position: position, student_work: student_work, phone_number: phone_number, email: email, name: name, type: type, address: address, uri: uri, description: description },
           function( data ) {
             var content = $( data ).find( '#content' );
             
