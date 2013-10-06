@@ -26,11 +26,13 @@ if($task == "doedit") {
   $description = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['description'] ) );
   $employer_name = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['employer_name'] ) );
   $position = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['position'] ) );
+  $student_work = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['student_work'] ) );
+  $phone_number = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['phone_number'] ) );
   $email = $_POST['email'];
   $lat = (float) $_POST['lat'];
   $lng = (float) $_POST['lng'];
   
-  mysql_query("UPDATE places SET name='$name', type='$type', address='$address', uri='$uri', lat='$lat', lng='$lng', description='$description', employer_name='$employer_name', position='$position', email='$email' WHERE id='$place_id' LIMIT 1") or die(mysql_error());
+  mysql_query("UPDATE places SET name='$name', type='$type', address='$address', uri='$uri', lat='$lat', lng='$lng', description='$description', employer_name='$employer_name', student_work='$student_work', phone_number='$phone_number', position='$position', email='$email' WHERE id='$place_id' LIMIT 1") or die(mysql_error());
   
   // geocode
   //$hide_geocode_output = true;
@@ -77,6 +79,22 @@ if($task == "doedit") {
       </div>
     </div>
     <div class="form-group">
+      <label class="col-sm-2  control-label" for="add_student_work">曾参与社会工作</label>
+      <div class="col-sm-10">
+        <input type="text" class="input form-control" name="student_work" value="<?=$place[student_work]?>" id="student_work">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">邮箱地址</label>
+      <div class="col-sm-4">
+        <input type="email" class="input form-control" name="email" value="<?=$place[email]?>">
+      </div>
+      <label class="col-sm-2 control-label">联系电话</label>
+      <div class="col-sm-4">
+        <input type="text" class="input form-control" name="phone_number" value="<?=$place[phone_number]?>">
+      </div>
+    </div>
+    <div class="form-group">
       <label class="col-sm-2  control-label" for="add_address">地址</label>
       <div class="col-sm-10">
         <input type="text" class="input form-control" name="address" value="<?=$place[address]?>" id="add_address">
@@ -92,12 +110,6 @@ if($task == "doedit") {
       <label class="col-sm-2 control-label" for="add_description">个人描述</label>
       <div class="col-sm-10">
         <textarea class="input form-control" name="description" id="add_description"><?=$place[description]?></textarea>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-sm-2 control-label">邮箱地址</label>
-      <div class="col-sm-10">
-        <input type="email" class="input form-control" name="email" value="<?=$place[email]?>">
       </div>
     </div>
     <div class="form-group">
