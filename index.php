@@ -460,7 +460,7 @@ mysql_query("SET NAMES 'utf8'");
                     <label class="col-sm-2 control-label" for="add_owner_name">工作单位</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" name="employer_name" id="add_owner_name" maxlength="100">
-                        <p class="help-block">如：美国麻省理工学院，华为技术有限公司，国家海洋局等</p>
+                        <p class="help-block">如：美国麻省理工学院，国家海洋局等</p>
                     </div>
                     <label class="col-sm-1 control-label" for="add_position">职务</label>
                     <div class="col-sm-4">
@@ -483,7 +483,7 @@ mysql_query("SET NAMES 'utf8'");
                   	<label class="col-sm-3 control-label" for="add_student_work">曾参与社会工作</label>
               		<div class="col-sm-9">
                			<input type="text" class="form-control" name="student_work" id="add_student_work">
-               			<p class="help-block">如：2010年校学生会XX部部长</p>
+               			<p class="help-block">如：2010年校学生会实践部部长</p>
               		</div>
             	  </div>
             			<div class="form-group">
@@ -507,7 +507,7 @@ mysql_query("SET NAMES 'utf8'");
               			<div class="col-sm-10">
                 			<textarea class="form-control" rows="3" id="add_description" name="description" maxlength="150"></textarea>
                 			<p class="help-block">
-                  				简洁，有力。您最近从事什么工作？您的人生格言？150字以内
+                  				让校友快速了解您。您最近从事什么工作？您的人生格言？150字以内
                 			</p>
               			</div>
             			</div>
@@ -548,7 +548,7 @@ mysql_query("SET NAMES 'utf8'");
             
             // if submission was successful, show info alert
             if(data == "success") {
-              $("#modal_addform #result").html("我们已经收到了您提交的信息，审核之后您就能在地图上看见自己了，请耐心等待，谢谢."); 
+              $("#modal_addform #result").html("已经收到了您提交的信息，审核之后您就能在地图上看见自己了，耐心等待，谢谢."); 
               $("#modal_addform #result").addClass("alert alert-info");
               $("#modal_addform p").css("display", "none");
               $("#modal_addform fieldset").css("display", "none");
