@@ -32,7 +32,7 @@ else if (empty($name) || empty($type) || empty($address) || empty($uri) || empty
   
 } else {
   // insert into db, wait for approval
-  $insert = mysql_query("INSERT INTO places (approved, name, type, address, uri, description, employer_name, student_work, phone_number, position, email) VALUES (null, _utf8'$name', '$type', _utf8'$address', '$uri', _utf8'$description', _utf8'$employer_name', _utf8'$student_work', '$phone_number', _utf8'$position', '$email')") or die(mysql_error());
+  $insert = mysql_query("INSERT INTO places (approved, name, type, address, uri, description, employer_name, student_work, phone_number, position, email) VALUES (null, '$name', '$type', '$address', '$uri', '$description', '$employer_name', '$student_work', '$phone_number', '$position', '$email')") or die(mysql_error());
 
   // geocode new submission
   $hide_geocode_output = true;

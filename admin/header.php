@@ -49,7 +49,7 @@ $admin_head = "
     <link rel='SHORTCUT ICON' href='../images/icons/favicon.ico'/>
     <script src='../bootstrap/js/bootstrap.min.js' type='text/javascript' charset='utf-8'></script>
     <script src='../scripts/jquery-1.7.1.js' type='text/javascript' charset='utf-8'></script>
-    <script src='http://ditu.google.cn/maps/api/js?v=3.exp&sensor=false&language=cn' type='text/javascript' charset='utf-8'></script>
+    <script src='http://ditu.google.cn/maps/api/js?key=AIzaSyC7a2MMoG2nkxwY6bmxjoULoiz2YTp43iI&sensor=false&language=cn' type='text/javascript' charset='utf-8'></script>
   </head>
   <body>
 ";

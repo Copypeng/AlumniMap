@@ -1,8 +1,6 @@
 <?php
 include_once "header.php";
 
-mysql_query("SET NAMES 'utf8'");
-
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">

@@ -8,8 +8,10 @@ include_once "header.php";
 // google maps vars
 define("MAPS_HOST", "ditu.google.cn");
 
-//geocode all markers
+// geocode all markers
 geocode("places");
+
+
 
 // geocode function
 function geocode($table) {
@@ -27,9 +29,9 @@ function geocode($table) {
     $geocode_pending = true;
 
     while ($geocode_pending) {
-      $address = utf8_encode($row["address"]);
+      $address = $row["address"];
       $id = $row["id"];
-      $request_url = $base_url . "?address=" . urlencode($address) . "&sensor=false";
+      $request_url = $base_url . "?address=" . $address . "&sensor=false";
       $xml = simplexml_load_file($request_url) or die("url not loading");
       
       $status = $xml->status;
@@ -63,9 +65,12 @@ function geocode($table) {
       usleep($delay);
     }
   }
+
   // finish
   if(@$hide_geocode_output != true) {
     echo mysql_num_rows($result)." $table geocoded<br />";
   }
+
 }
+
 ?>

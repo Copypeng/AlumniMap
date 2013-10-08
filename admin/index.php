@@ -2,7 +2,7 @@
 $page = "index";
 include "header.php";
 
-mysql_query("SET NAMES 'utf8'");
+
 // hide marker on map
 if($task == "hide") {
   $place_id = htmlspecialchars($_GET['place_id']);
