@@ -17,7 +17,7 @@ $admin_user = "";
 
 // admin password
 $admin_pass = "";
+
 // HTML that goes just before </head>
 $head_html = "";
-
 ?>

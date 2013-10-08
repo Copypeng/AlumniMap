@@ -1,5 +1,6 @@
 <?php
 include_once "header.php";
+mysql_query("SET NAMES 'utf8'");
 
 $employer_name = mysql_real_escape_string(parseInput($_POST['employer_name']));
 $position = mysql_real_escape_string(parseInput($_POST['position']));
