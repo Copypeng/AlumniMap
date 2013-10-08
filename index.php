@@ -460,7 +460,7 @@ mysql_query("SET NAMES 'utf8'");
                     <label class="col-sm-2 control-label" for="add_owner_name">工作单位</label>
                     <div class="col-sm-5">
                         <input type="text" class="form-control" name="employer_name" id="add_owner_name" maxlength="100">
-                        <p class="help-block">如：美国麻省理工学院，国家海洋局等</p>
+                        <p class="help-block">如：美国麻省理工学院，国家海洋局</p>
                     </div>
                     <label class="col-sm-1 control-label" for="add_position">职务</label>
                     <div class="col-sm-4">
@@ -490,7 +490,7 @@ mysql_query("SET NAMES 'utf8'");
               				<label class="col-sm-2 control-label" for="add_address">标记地址</label>
               				<div class="col-sm-10">
                 				<input type="text" class="form-control" name="address" id="add_address">
-                				<p class="help-block">请填写您所处位置的经纬度（如:<a href="http://goo.gl/maps/Mo9h1" target="_blank">36.060561, 120.334635</a>）或者详细地址（如:<a href="http://goo.gl/maps/C9r9x" target="_blank">青岛市崂山区松岭路238号</a>），如果您的地址在<a href="http://ditu.google.cn/" target="_blank">谷歌地图</a>上可以生效，那么在这里也可以</p>
+                				<p class="help-block">请填写经纬度（如:<a href="http://goo.gl/maps/Mo9h1" target="_blank">36.060561, 120.334635</a>）或者详细地址（如:<a href="http://goo.gl/maps/C9r9x" target="_blank">山东省青岛市崂山区松岭路238号</a>），如果您的地址在<a href="http://ditu.google.cn/" target="_blank">谷歌地图</a>上可以生效，那么这里也可以。为了保护您的隐私，我们不建议您使用家庭住址</p>
               				</div>
             			</div>
             			<div class="form-group">
@@ -507,7 +507,7 @@ mysql_query("SET NAMES 'utf8'");
               			<div class="col-sm-10">
                 			<textarea class="form-control" rows="3" id="add_description" name="description" maxlength="150"></textarea>
                 			<p class="help-block">
-                  				让校友快速了解您。您最近从事什么工作？您的人生格言？150字以内
+                  				让校友快速了解您。比如：您最近从事什么工作？您的人生格言？150字以内
                 			</p>
               			</div>
             			</div>
@@ -548,7 +548,7 @@ mysql_query("SET NAMES 'utf8'");
             
             // if submission was successful, show info alert
             if(data == "success") {
-              $("#modal_addform #result").html("已经收到了您提交的信息，审核之后您就能在地图上看见自己了，耐心等待，谢谢."); 
+              $("#modal_addform #result").html("已经收到了您提交的信息，审核后您就能在地图上看见自己了，耐心等待，谢谢"); 
               $("#modal_addform #result").addClass("alert alert-info");
               $("#modal_addform p").css("display", "none");
               $("#modal_addform fieldset").css("display", "none");
