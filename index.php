@@ -351,7 +351,7 @@ mysql_query("SET NAMES 'utf8'");
         	<h3>中国海洋大学校友地图</h3>
         	<p>To connect and unite the past students of OUC</p>
         	<div class="buttons">
-        	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal_add">+ 加入</button>
+        	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_add">+ 加入</button>
           &nbsp;&nbsp;
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal_info">关 于</button>
           </div>
@@ -417,7 +417,7 @@ mysql_query("SET NAMES 'utf8'");
         			<p>中国海洋大学校友地图的开发旨在方便海大毕业生的相互联系。<br>
         			<span>To connect and unite the past students of OUC.</span><hr>
         			您能在一张地图上看到分布在世界各地的海大人，并找到他们公开的联系方式。在这里，您能快速地通过搜索或者分类找到您当年的校友。为了方便其他校友也能找到您，热烈欢迎您提交自己的信息:</p>
-        			<p style="text-align:center;"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal_add" data-dismiss="modal">+ 加入</button><span> 或点击网页右侧面板相同按钮</span></p>
+        			<p style="text-align:center;"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_add" data-dismiss="modal">+ 加入</button><span> 或点击网页右侧面板相同按钮</span></p>
        				<p>如果您在使用过程中遇到问题，或者对校友地图有任何意见与建议，欢迎向我们反馈：<a href="mailto:pengyongouc@gmail.com">pengyongouc@gmail.com</a></p><hr>
        				<p>校友地图项目的诞生离不开<a href="http://www2.ouc.edu.cn/oceanyouth/" target="_blank">中国海洋大学校团委</a>与<a href="http://222.195.158.146/nc/index.html" target="_blank">中国海洋大学网络与信息中心</a>的支持.<br>离不开众多<a href="./Credits.html" target="_blank">开源工具</a>.</p>
       </div>
