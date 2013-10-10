@@ -12,13 +12,10 @@ mysql_query("SET NAMES 'utf8'");
     <link rel="SHORTCUT ICON" href="./images/icons/favicon.ico"/>
     <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link rel="stylesheet" href="map.css?nocache=289671982568" type="text/css" />
+    <link rel="stylesheet" href="ladda-themeless.min.css" type="text/css" />
     <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css" type="text/css" />
     <script type="text/javascript" src="./scripts/jquery-1.7.1.js"></script>
-    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./bootstrap/js/bootstrap-typeahead.js"></script>
     <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyC7a2MMoG2nkxwY6bmxjoULoiz2YTp43iI&sensor=false&language=cn"></script>
-    <script type="text/javascript" src="./scripts/label.js"></script>
-    <script type="text/javascript" src="./scripts/markerclusterer.js"></script>
     <script type="text/javascript">
       var map;
       var infowindow = null;
@@ -27,7 +24,6 @@ mysql_query("SET NAMES 'utf8'");
       var highestZIndex = 0;  
       var agent = "default";
       var zoomControl = true;
-
 
       // detect browser agent
       $(document).ready(function(){
@@ -489,7 +485,7 @@ mysql_query("SET NAMES 'utf8'");
               				<label class="col-sm-2 control-label" for="add_address">标记地址</label>
               				<div class="col-sm-10">
                 				<input type="text" class="form-control" name="address" id="add_address">
-                				<p class="help-block">请填写经纬度（如:<a href="http://goo.gl/maps/Mo9h1" target="_blank">36.060561, 120.334635</a>）或者详细地址（如:<a href="http://goo.gl/maps/C9r9x" target="_blank">山东省青岛市崂山区松岭路238号</a>），如果您的地址在<a href="http://ditu.google.cn/" target="_blank">谷歌地图</a>上可以生效，那么这里也可以。为了保护您的隐私，我们不建议您使用家庭住址</p>
+                				<p class="help-block">请填写经纬度（如:<a href="http://goo.gl/maps/Mo9h1" target="_blank">36.060561, 120.334635</a>）或者详细地址（如:<a href="http://goo.gl/maps/C9r9x" target="_blank">青岛市崂山区松岭路238号</a>），如果您的地址在<a href="http://ditu.google.cn/" target="_blank">谷歌地图</a>上可以生效，那么这里也可以.<br>为了保护您的隐私，我们不建议您使用家庭住址</p>
               				</div>
             			</div>
             			<div class="form-group">
@@ -514,14 +510,25 @@ mysql_query("SET NAMES 'utf8'");
           				<div id="result"></div>
         			</div>
         			<div class="modal-footer" style="text-align:right;">
-          				<button type="submit" class="btn btn-primary"> 提 交</button>
+          				<button type="submit" class="btn btn-primary">提 交</button>
           				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
         			</div>
       			</form>
      		</div>
     	</div>
    </div>
+        <!-- footerbar -->
+    <div class="footerbar" id="footerbar">
+      <div class="container">
+      <div class="row">
+      	<div class="col-xs-6 col-md-4">Copyright©中国海洋大学. All Rights Reserved.</div>
+      </div>
+    </div>
 
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./bootstrap/js/bootstrap-typeahead.js"></script>
+    <script type="text/javascript" src="./scripts/label.js"></script>
+    <script type="text/javascript" src="./scripts/markerclusterer.js"></script>
     <script>
       // add modal form submit
       $("#modal_addform").submit(function(event) {
@@ -540,7 +547,7 @@ mysql_query("SET NAMES 'utf8'");
             description = $form.find( '#add_description' ).val(),
             url = $form.attr( 'action' );
 
-        // send data and get results
+       // send data and get results
         $.post( url, { employer_name: employer_name, position: position, student_work: student_work, phone_number: phone_number, email: email, name: name, type: type, address: address, uri: uri, description: description },
           function( data ) {
             var content = $( data ).find( '#content' );
@@ -561,15 +568,7 @@ mysql_query("SET NAMES 'utf8'");
           }
         );
       });
-    </script>
-        <!-- footerbar -->
-    <div class="footerbar" id="footerbar">
-      <div class="container">
-      <div class="row">
-      	<div class="col-xs-6 col-md-4">Copyright©中国海洋大学. All Rights Reserved.</div>
-      </div>
-    </div>
-    <script>
+
 		$('#toggleRight').toggle(function() {
 			$('#menuRight').animate({
 				right: -230
