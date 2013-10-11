@@ -11,8 +11,9 @@ mysql_query("SET NAMES 'utf8'");
     <title>校友地图——中国海洋大学地图校友录</title>
     <link rel="SHORTCUT ICON" href="./images/icons/favicon.ico"/>
     <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-    <link rel="stylesheet" href="map.css?nocache=289671982568" type="text/css" />
+    <link rel="stylesheet" href="map.min.css?nocache=289671982568" type="text/css" />
     <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css" type="text/css" />
+    <script type="text/javascript" src="./scripts/pace.min.js"></script>
     <script type="text/javascript" src="./scripts/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyC7a2MMoG2nkxwY6bmxjoULoiz2YTp43iI&sensor=false&language=cn"></script>
     <script type="text/javascript">
