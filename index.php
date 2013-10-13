@@ -13,9 +13,11 @@ mysql_query("SET NAMES 'utf8'");
     <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link rel="stylesheet" href="map.min.css?nocache=289671982568" type="text/css" />
     <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css" type="text/css" />
-    <script type="text/javascript" src="./scripts/pace.min.js"></script>
     <script type="text/javascript" src="./scripts/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyC7a2MMoG2nkxwY6bmxjoULoiz2YTp43iI&sensor=false&language=cn"></script>
+    <script type="text/javascript" src="./scripts/label.js"></script>
+    <script type="text/javascript" src="./scripts/markerclusterer.js"></script>
+    <script type="text/javascript" src="./scripts/pace.min.js"></script>
     <script type="text/javascript">
       var map;
       var infowindow = null;
@@ -527,8 +529,6 @@ mysql_query("SET NAMES 'utf8'");
 
     <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./bootstrap/js/bootstrap-typeahead.js"></script>
-    <script type="text/javascript" src="./scripts/label.js"></script>
-    <script type="text/javascript" src="./scripts/markerclusterer.js"></script>
     <script>
       // add modal form submit
       $("#modal_addform").submit(function(event) {
