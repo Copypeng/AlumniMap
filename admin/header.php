@@ -21,7 +21,7 @@ else { $search = ""; }
 
 // make sure admin is logged in
 if($page != "login") {
-  if($_COOKIE["representmap_user"] != crypt($admin_user, $admin_user) OR $_COOKIE["representmap_pass"] != crypt($admin_pass, $admin_pass)) {
+  if($_COOKIE["Alumnimap_user"] != crypt($admin_user, $admin_user) OR $_COOKIE["Alumnimap_pass"] != crypt($admin_pass, $admin_pass)) {
     header("Location: login.php");
     exit;
   }

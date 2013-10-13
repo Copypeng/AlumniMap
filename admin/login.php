@@ -7,8 +7,8 @@ $alert = "";
 
 // logout
 if($task == "logout") {
-  setcookie("representmap_user", "", time()+3600000);
-  setcookie("representmap_pass", "", time()+3600000);
+  setcookie("Alumnimap_user", "", time()+3600000);
+  setcookie("Alumnimap_pass", "", time()+3600000);
   header("Location: login.php");
   exit;
 }
@@ -20,8 +20,8 @@ if($task == "dologin") {
     $alert = "未输入用户名与密码，要不再试试？";
   } else {
     if(crypt($input_user, $admin_user) == crypt($admin_user, $admin_user) && crypt($input_pass, $admin_pass) == crypt($admin_pass,$admin_pass)) {
-      setcookie("representmap_user", crypt($input_user, $admin_user), time()+3600000);
-      setcookie("representmap_pass", crypt($input_pass, $admin_pass), time()+3600000);
+      setcookie("Alumnimap_user", crypt($input_user, $admin_user), time()+3600000);
+      setcookie("Alumnimap_pass", crypt($input_pass, $admin_pass), time()+3600000);
       header("Location: index.php");
       exit;
     } else {
