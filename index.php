@@ -1,6 +1,5 @@
 <?php
 include_once "header.php";
-mysql_query("SET NAMES 'utf8'");
 
 ?>
 <!DOCTYPE html>
@@ -14,7 +13,7 @@ mysql_query("SET NAMES 'utf8'");
     <link rel="stylesheet" href="map.min.css?nocache=289671982568" type="text/css" />
     <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css" type="text/css" />
     <script type="text/javascript" src="./scripts/jquery-1.7.1.js"></script>
-    <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyC7a2MMoG2nkxwY6bmxjoULoiz2YTp43iI&sensor=false&language=cn"></script>
+    <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?&sensor=false&language=cn"></script>
     <script type="text/javascript" src="./scripts/label.js"></script>
     <script type="text/javascript" src="./scripts/markerclusterer.js"></script>
     <script type="text/javascript" src="./scripts/pace.min.js"></script>

@@ -1,6 +1,5 @@
 <?php
 include "header.php";
-mysql_query("SET NAMES 'utf8'");
 
 if(isset($_GET['place_id'])) {
   $place_id = htmlspecialchars($_GET['place_id']); 

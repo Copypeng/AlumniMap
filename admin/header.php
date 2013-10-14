@@ -49,7 +49,7 @@ $admin_head = "
     <link rel='SHORTCUT ICON' href='../images/icons/favicon.ico'/>
     <script src='../bootstrap/js/bootstrap.min.js' type='text/javascript' charset='utf-8'></script>
     <script src='../scripts/jquery-1.7.1.js' type='text/javascript' charset='utf-8'></script>
-    <script src='http://ditu.google.cn/maps/api/js?key=AIzaSyC7a2MMoG2nkxwY6bmxjoULoiz2YTp43iI&sensor=false&language=cn' type='text/javascript' charset='utf-8'></script>
+    <script src='http://ditu.google.cn/maps/api/js?&sensor=false&language=cn' type='text/javascript' charset='utf-8'></script>
   </head>
   <body>
 ";
@@ -57,11 +57,17 @@ if($page != "login") {
   $admin_head .= "
     <nav class='navbar navbar-default navbar-fixed-top' role='navigation'>
     <div class='navbar-header'>
+    	<button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#admin-navbar-collapse-1'>
+    	<span class='sr-only'>Toggle navigation</span>
+      	<span class='icon-bar'></span>
+      	<span class='icon-bar'></span>
+      	<span class='icon-bar'></span>
+      	</button>
       <a class='navbar-brand' href='index.php'>
             校友地图
       </a>
     </div>
-    <div class='collapse navbar-collapse navbar-ex1-collapse'>
+    <div class='collapse navbar-collapse' id='admin-navbar-collapse-1'>
       <ul class='nav navbar-nav'>
         <li"; if($view == "") { $admin_head .= " class='active'"; } $admin_head .= ">
           <a href='index.php'>全部</a>
@@ -89,7 +95,8 @@ if($page != "login") {
         <input type='text' name='search' class='search-query' placeholder='搜索' autocomplete='off' value='$search'>
       </form>
       <ul class='nav pull-right'>
-        <li><a href='login.php?task=logout'>登 出</a></li>
+      	<li style='float: left;'><a href='toexcel.php?type=html'>数据导出</a></li>
+        <li style='float: left;'><a href='login.php?task=logout'>登 出</a></li>
       </ul>
     </div>
 </nav>
