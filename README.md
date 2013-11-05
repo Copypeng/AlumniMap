@@ -43,6 +43,10 @@ AlumniMap是我构建的校友地图开源项目，旨在帮助高等学校等�
 
 * 记得常登陆后台管理申请，如果用户向你提交了一个申请，默认需要你approve才能在地图上生成marker.
 
+###bug与新功能
+
+强烈期待大家直接Pull requests
+
 ###License
 MIT License https://raw.github.com/Copypeng/AlumniMap/master/LICENSE
 
