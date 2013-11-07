@@ -3,6 +3,7 @@ include_once "header.php";
 
 ?>
 <!DOCTYPE html>
+<? echo $pre_html; ?>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8">
@@ -325,8 +326,6 @@ include_once "header.php";
 
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-    
-    <? echo $head_html; ?>
   </head>
   <body>
     
