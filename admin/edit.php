@@ -26,11 +26,13 @@ if($task == "doedit") {
   $position = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['position'] ) );
   $student_work = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['student_work'] ) );
   $phone_number = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['phone_number'] ) );
+  $qq_number = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['qq_number'] ) );
+  $wechat_number = str_replace( "'", "\\'", str_replace( "\\", "\\\\", $_POST['wechat_number'] ) );
   $email = $_POST['email'];
   $lat = (float) $_POST['lat'];
   $lng = (float) $_POST['lng'];
   
-  mysql_query("UPDATE places SET name='$name', type='$type', address='$address', uri='$uri', lat='$lat', lng='$lng', description='$description', employer_name='$employer_name', student_work='$student_work', phone_number='$phone_number', position='$position', email='$email' WHERE id='$place_id' LIMIT 1") or die(mysql_error());
+  mysql_query("UPDATE places SET name='$name', type='$type', address='$address', uri='$uri', lat='$lat', lng='$lng', description='$description', employer_name='$employer_name', student_work='$student_work', phone_number='$phone_number', qq_number='$qq_number', wechat_number='$wechat_number', position='$position', email='$email' WHERE id='$place_id' LIMIT 1") or die(mysql_error());
   
   // geocode
   //$hide_geocode_output = true;
@@ -58,10 +60,17 @@ if($task == "doedit") {
       <label class="col-sm-2 control-label">入学年份</label>
       <div class="col-sm-4">
       <select class="input form-control" name="type">
+          <option<? if($place[type] == "2010") {?> selected="selected"<? } ?>>2010</option>
           <option<? if($place[type] == "2009") {?> selected="selected"<? } ?>>2009</option>
           <option<? if($place[type] == "2008") {?> selected="selected"<? } ?>>2008</option>
           <option<? if($place[type] == "2007") {?> selected="selected"<? } ?>>2007</option>
           <option<? if($place[type] == "2006") {?> selected="selected"<? } ?>>2006</option>
+          <option<? if($place[type] == "2005") {?> selected="selected"<? } ?>>2005</option>
+          <option<? if($place[type] == "2004") {?> selected="selected"<? } ?>>2004</option>
+          <option<? if($place[type] == "2003") {?> selected="selected"<? } ?>>2003</option>
+          <option<? if($place[type] == "2002") {?> selected="selected"<? } ?>>2002</option>
+          <option<? if($place[type] == "2001") {?> selected="selected"<? } ?>>2001</option>
+          <option<? if($place[type] == "2000") {?> selected="selected"<? } ?>>2000</option>
           <option<? if($place[type] == "other") {?> selected="selected"<? } ?>>other</option>
       </select>
       </div>
@@ -96,6 +105,16 @@ if($task == "doedit") {
       <label class="col-sm-2  control-label" for="add_address">地址</label>
       <div class="col-sm-10">
         <input type="text" class="input form-control" name="address" value="<?=$place[address]?>" id="add_address">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">QQ号码</label>
+      <div class="col-sm-4">
+        <input type="text" class="input form-control" name="qq_number" value="<?=$place[qq_number]?>">
+      </div>
+      <label class="col-sm-2 control-label">微信号</label>
+      <div class="col-sm-4">
+        <input type="text" class="input form-control" name="wechat_number" value="<?=$place[wechat_number]?>">
       </div>
     </div>
     <div class="form-group">

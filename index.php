@@ -50,9 +50,9 @@ include_once "header.php";
       
       // resize marker list to fit window
       function resizeList() {
-        newHeight = $('html').height() - $('#footerbar').height();
-        $('#list').css('height', newHeight + "px"); 
-        $('#menu').css('margin-top', $('#footerbar').height()); 
+        newHeight = $('html').height() - $('#footerbar').height() - $('.wrapper').height() - 9;
+        $('#list').css('height', newHeight + "px");
+        $('#menuRight').css('margin-bottom', $('#footerbar').height());
       }
 
 
@@ -134,10 +134,17 @@ include_once "header.php";
         markers = new Array();
         <?php
           $types = Array(
+              Array('2010', '2010级'),
               Array('2009', '2009级'),
-              Array('2008','2008级'),
+              Array('2008', '2008级'),
               Array('2007', '2007级'), 
               Array('2006', '2006级'), 
+              Array('2005', '2005级'),
+              Array('2004', '2004级'),
+              Array('2003', '2003级'),
+              Array('2002', '2002级'),
+              Array('2001', '2001级'),
+              Array('2000', '2000级'),
               Array('other', '更早...'),
               );
           $marker_id = 0;
@@ -345,6 +352,7 @@ include_once "header.php";
         <a href="./"><img src="./images/OUC-logo.png" alt="中国海洋大学校友地图"></a>
       </div>
         	<h3>中国海洋大学校友地图</h3>
+          <h4>—— 团干分会</h4>
         	<p>To connect and unite the past students of OUC</p>
         	<div class="buttons">
         	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_add">+ 加入</button>
@@ -359,10 +367,17 @@ include_once "header.php";
       <ul class="list" id="list">
         <?php
           $types = Array(
+              Array('2010', '2010级'),
               Array('2009', '2009级'),
-              Array('2008','2008级'),
+              Array('2008', '2008级'),
               Array('2007', '2007级'), 
               Array('2006', '2006级'), 
+              Array('2005', '2005级'),
+              Array('2004', '2004级'),
+              Array('2003', '2003级'),
+              Array('2002', '2002级'),
+              Array('2001', '2001级'),
+              Array('2000', '2000级'),
               Array('other', '更早...'),
               );
           if($show_events == true) {
@@ -415,7 +430,7 @@ include_once "header.php";
         			您能在一张地图上看到分布在世界各地的海大人，并找到他们公开的联系方式。在这里，您能快速地通过搜索或者分类找到您当年的校友。为了方便其他校友也能找到您，热烈欢迎您提交自己的信息:</p>
         			<p style="text-align:center;"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_add" data-dismiss="modal">+ 加入</button><span> 或点击网页右侧面板相同按钮</span></p>
        				<p>如果您在使用过程中遇到问题，或者对校友地图有任何意见与建议，欢迎向我们反馈：<a href="mailto:pengyongouc@gmail.com">pengyongouc@gmail.com</a></p><hr>
-       				<p>校友地图项目的诞生离不开<a href="http://www2.ouc.edu.cn/oceanyouth/" target="_blank">中国海洋大学校团委</a>与<a href="http://222.195.158.146/nc/index.html" target="_blank">中国海洋大学网络与信息中心</a>的支持.<br>离不开众多<a href="./Credits.html" target="_blank">开源工具</a>.</p>
+       				<p>校友地图项目的诞生离不开<a href="http://srdp.ouc.edu.cn/" target="_blank">本科生研究发展计划(SRDP)</a>与<a href="http://web.ouc.edu.cn/tw/" target="_blank">中国海洋大学校团委</a>的支持.<br>离不开众多<a href="./Credits.html" target="_blank">开源工具</a>.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -443,10 +458,17 @@ include_once "header.php";
               				<label class="col-sm-2 control-label" for="input01">入学年份</label>
               				<div class="col-sm-4">
                 				<select name="type" id="add_type" class="col-sm-3 form-control">
-                  				<option value="2009">2009年</option>
+                  				<option value="2010">2010年</option>
+                          <option value="2009">2009年</option>
                   				<option value="2008">2008年</option>
                   				<option value="2007">2007年</option>
                   				<option value="2006">2006年</option>
+                          <option value="2005">2005年</option>
+                          <option value="2004">2004年</option>
+                          <option value="2003">2003年</option>
+                          <option value="2002">2002年</option>
+                          <option value="2001">2001年</option>
+                          <option value="2000">2000年</option>
                   				<option value="other">更早...</option>
                 				</select>
                 			</div>
@@ -460,7 +482,7 @@ include_once "header.php";
                     <label class="col-sm-1 control-label" for="add_position">职务</label>
                     <div class="col-sm-4">
                      	<input type="text" class="form-control" name="position" id="add_position">
-                     	<p class="help-block"><b>选填</b>，我们不会将其公开</p>
+                     	<p class="help-block"><b>选填，保密</b>，不会公开</p>
                     </div>
                   </div>
                 <div class="form-group">
@@ -471,9 +493,9 @@ include_once "header.php";
               		<label class="col-sm-2 control-label" for="add_phone_number">联系电话</label>
               		<div class="col-sm-4">
                			<input type="text" class="form-control" name="phone_number" id="add_phone_number">
-               			<p class="help-block"><b>选填</b>，我们不会将其公开</p>
+               			<p class="help-block"><b>选填，保密</b>，只做紧急联系用</p>
               		</div>
-            	</div>
+            	 </div>
                   <div class="form-group">
                   	<label class="col-sm-3 control-label" for="add_student_work">曾参与社会工作</label>
               		<div class="col-sm-9">
@@ -497,6 +519,18 @@ include_once "header.php";
                 				</p>
               				</div>
             			</div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="add_qq_number">QQ号码</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" name="qq_number" id="add_qq_number">
+                    <p class="help-block"><b>选填</b>，默认会展示给校友</p>
+                  </div>
+                  <label class="col-sm-2 control-label" for="add_wechat_number">微信号</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" name="wechat_number" id="add_wechat_number">
+                    <p class="help-block"><b>选填</b>，默认会展示给校友</p>
+                  </div>
+               </div>
             			<div class="form-group">
               				<label class="col-sm-2 control-label" for="add_description">自我描述</label>
               			<div class="col-sm-10">
@@ -537,6 +571,8 @@ include_once "header.php";
             position = $form.find( '#add_position' ).val(),
             student_work = $form.find( '#add_student_work' ).val(),
             phone_number = $form.find( '#add_phone_number' ).val(),
+            qq_number = $form.find( '#add_qq_number' ).val(),
+            wechat_number = $form.find( '#add_wechat_number' ).val(),
             email = $form.find( '#add_owner_email' ).val(),
             name = $form.find( '#add_title' ).val(),
             type = $form.find( '#add_type' ).val(),
@@ -546,7 +582,7 @@ include_once "header.php";
             url = $form.attr( 'action' );
 
        // send data and get results
-        $.post( url, { employer_name: employer_name, position: position, student_work: student_work, phone_number: phone_number, email: email, name: name, type: type, address: address, uri: uri, description: description },
+        $.post( url, { employer_name: employer_name, position: position, student_work: student_work, phone_number: phone_number, qq_number: qq_number, wechat_number: wechat_number, email: email, name: name, type: type, address: address, uri: uri, description: description },
           function( data ) {
             var content = $( data ).find( '#content' );
             

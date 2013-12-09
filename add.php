@@ -6,6 +6,8 @@ $position = mysql_real_escape_string(parseInput($_POST['position']));
 $student_work = mysql_real_escape_string(parseInput($_POST['student_work']));
 $email = mysql_real_escape_string(parseInput($_POST['email']));
 $phone_number = mysql_real_escape_string(parseInput($_POST['phone_number']));
+$qq_number = mysql_real_escape_string(parseInput($_POST['qq_number']));
+$wechat_number = mysql_real_escape_string(parseInput($_POST['wechat_number']));
 $name = mysql_real_escape_string(parseInput($_POST['name']));
 $type = mysql_real_escape_string(parseInput($_POST['type']));
 $address = mysql_real_escape_string(parseInput($_POST['address']));
@@ -32,7 +34,7 @@ else if (empty($name) || empty($type) || empty($address) || empty($uri) || empty
   
 } else {
   // insert into db, wait for approval
-  $insert = mysql_query("INSERT INTO places (approved, name, type, address, uri, description, employer_name, student_work, phone_number, position, email) VALUES (null, '$name', '$type', '$address', '$uri', '$description', '$employer_name', '$student_work', '$phone_number', '$position', '$email')") or die(mysql_error());
+  $insert = mysql_query("INSERT INTO places (approved, name, type, address, uri, description, employer_name, student_work, phone_number, qq_number, wechat_number, position, email) VALUES (null, '$name', '$type', '$address', '$uri', '$description', '$employer_name', '$student_work', '$phone_number', '$qq_number', '$wechat_number', '$position', '$email')") or die(mysql_error());
 
   // geocode new submission
   $hide_geocode_output = true;

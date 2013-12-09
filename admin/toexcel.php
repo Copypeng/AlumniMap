@@ -1,6 +1,6 @@
 <?php
 
-$mysqli = new mysqli("localhost","username","password","dbname");
+$mysqli = new mysqli("localhost","","","");
 // Get data from the database.
 $sql = "SELECT * FROM places";
 // Grab the records
@@ -46,7 +46,7 @@ if (isset($_GET['download']) && $type == 'csv') {
 
 
 if ($type == 'csv') {
-	echo "姓名,入学年份,地址,工作单位,职务,电话,电子邮件\n";
+	echo "姓名,入学年份,地址,工作单位,职务,电话,QQ号码,微信号,电子邮件\n";
 	
 	// Then loop over the results, keeping commas in between the records.
 	// Something to consider: 
@@ -58,6 +58,8 @@ if ($type == 'csv') {
 		echo $row['employer_name'] . ",";
 		echo $row['position'] . ",";
 		echo $row['phone_number'] . ",";
+		echo $row['qq_number'] . ",";
+		echo $row['wechat_number'] . ",";
 		echo $row['email'];
 		echo "\n";
 	}
@@ -74,6 +76,8 @@ if ($type == 'csv') {
 			<th>工作单位</th>
 			<th>职务</th>
 			<th>电话</th>
+			<th>QQ号码</th>
+			<th>微信号</th>
 			<th>电子邮件</th>
 		</tr>
 		<?php 
@@ -86,6 +90,8 @@ if ($type == 'csv') {
 					<td><?php echo $row['employer_name'];?></td>
 					<td><?php echo $row['position'];?></td>
 					<td><?php echo $row['phone_number'];?></td>
+					<td><?php echo $row['qq_number'];?></td>
+					<td><?php echo $row['wechat_number'];?></td>
 					<td><?php echo $row['email'];?></td>
 				</tr>	
 			<?php
